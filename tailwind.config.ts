@@ -7,7 +7,19 @@ const config: Config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        dark: "#1b1b1d",
+        light: "#fdfdfb",
+        grey: "#E2E0DF",
+        red: "#D14338",
+        orange: "#FF7A42",
+        green: "#439158",
+        pink: "#FF768B",
+        blue: "#075571",
+        violet: "#9081BC",
+      },
+    },
   },
   plugins: [],
 };
