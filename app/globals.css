@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+/* base style */
+
+main {
+  @apply mt-10;
+}
+
 /* common styles */
 
 .wrapper {
@@ -9,9 +15,8 @@
 }
 
 .eoq {
-  transition: 300ms cubic-bezier(0.45, 0, 0.55, 1);
+  transition: 500ms cubic-bezier(0.45, 0, 0.55, 1);
 }
-
 .section-padding {
   @apply py-20;
 }
@@ -28,4 +33,9 @@
 
 .link-item:hover::after {
   @apply w-full;
+}
+
+/* TYPOGRAPHY */
+.headline-1 {
+  @apply text-8xl;
 }

@@ -22,10 +22,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={cn(baiJamjuree.className, "bg-light text-dark antialiased")}
+        className={cn(baiJamjuree.className, "bg-light text-dark  antialiased")}
       >
         <Navbar />
         {children}
+
         <Footer />
       </body>
     </html>
