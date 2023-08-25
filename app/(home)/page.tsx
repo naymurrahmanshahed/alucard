@@ -1,8 +1,13 @@
-import Button from "@/components/ui/Button";
+import Hero from "@/components/home/Hero";
+
 import React from "react";
 
 const HomePage = () => {
-  return <main>homepage</main>;
+  return (
+    <main>
+      <Hero />
+    </main>
+  );
 };
 
 export default HomePage;
