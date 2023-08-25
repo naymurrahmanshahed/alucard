@@ -30,7 +30,7 @@ const HorizontalTab: React.FC<HorizontalTabProps> = ({
         {tabs?.map((tab: string, index: number) => (
           <button
             className={cn(
-              'eoq flex h-[4rem] w-[15rem] items-center justify-center whitespace-nowrap border border-grey px-6 py-3 text-center text-lg font-semibold tracking-widest',
+              'eoq flex h-[4rem] w-[15rem] items-center justify-center whitespace-nowrap border border-grey px-6 py-3 text-center text-lg font-semibold uppercase tracking-widest',
               index == 0 && 'rounded-bl-2xl',
               index == tabs.length - 1 && 'rounded-tr-2xl',
               shouldOpenTab === index && 'border-dark bg-dark text-light'
