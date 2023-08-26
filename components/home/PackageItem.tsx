@@ -40,12 +40,15 @@ const PackageItem: React.FC<PackageItemProps> = ({
         <span className='text-xs font-bold uppercase tracking-[0.375em] text-pink'>
           {category}
         </span>
-        <h4 className='text-2xl'>{title}</h4>
+        <h4 className='text-xl'>{title}</h4>
         <hr />
-        <p className='text-dark/75'>{description.substring(0, 60)}...</p>
+        <p className='text-dark/75'>{description.substring(0, 50)}...</p>
         <div className='flex items-center justify-between gap-2.5'>
           <p>{formatCurrency(price, 'en-GB', 'BDT')}</p>
-          <Link className={buttonVariants()} href={`/packages/${id}`}>
+          <Link
+            className={buttonVariants({ variant: 'rose' })}
+            href={`/packages/${id}`}
+          >
             View details
           </Link>
         </div>

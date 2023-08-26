@@ -1,19 +1,16 @@
 'use client';
-import { data } from '@/data/packages';
-import HorizontalTab from '../ui/HorizontalTab';
-import SectionTitle from '../shared/SectionTitle';
-import PackageItem from './PackageItem';
-import { useState } from 'react';
-import Link from 'next/link';
-import { cn } from '@/lib/utils';
-import { buttonVariants } from '../ui/Button';
 
-const Packages = () => {
+import { data } from '@/data/packages';
+import PackageItem from '../home/PackageItem';
+import SectionTitle from '../shared/SectionTitle';
+import HorizontalTab from '../ui/HorizontalTab';
+import { useState } from 'react';
+
+const AllPackages = () => {
   const [shouldOpenTab, setShouldOpenTab] = useState<number>(0);
   const tab = [...new Set(data?.map((masterCat) => masterCat.masterCategory))];
-
   return (
-    <section className='wrapper section-padding ' id='packages'>
+    <section className='section-padding wrapper min-h-screen'>
       <SectionTitle title='Explore our beauty packages' subtitle='Packages' />
 
       <HorizontalTab
@@ -25,7 +22,6 @@ const Packages = () => {
           {data
             .filter((item: any) => item.masterCategory === tab[shouldOpenTab])
             .sort((a: any, b: any) => a.price - b.price)
-            .slice(0, 4)
             .map((item: any) => (
               <PackageItem key={item.id} {...item} />
             ))}
@@ -34,7 +30,6 @@ const Packages = () => {
           {data
             .filter((item: any) => item.masterCategory === tab[shouldOpenTab])
             .sort((a: any, b: any) => a.price - b.price)
-            .slice(0, 4)
             .map((item: any) => (
               <PackageItem key={item.id} {...item} />
             ))}
@@ -43,22 +38,13 @@ const Packages = () => {
           {data
             .filter((item: any) => item.masterCategory === tab[shouldOpenTab])
             .sort((a: any, b: any) => a.price - b.price)
-            .slice(0, 4)
             .map((item: any) => (
               <PackageItem key={item.id} {...item} />
             ))}
         </div>
       </HorizontalTab>
-      <div className='flex justify-center'>
-        <Link
-          href={'/packages'}
-          className={cn(buttonVariants({ variant: 'outline' }), 'mt-20')}
-        >
-          View all packages
-        </Link>
-      </div>
     </section>
   );
 };
 
-export default Packages;
+export default AllPackages;
