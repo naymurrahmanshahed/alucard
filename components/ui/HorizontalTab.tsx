@@ -1,5 +1,6 @@
 'use client';
 import { cn } from '@/lib/utils';
+import { packageItem } from '@/types/packageItem';
 import React, { useCallback } from 'react';
 
 interface HorizontalTabProps {
