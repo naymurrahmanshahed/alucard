@@ -19,6 +19,7 @@ const Hero = () => {
               width={640}
               height={360}
               className='h-full w-full object-cover'
+              priority
             />
           </div>
 
@@ -48,6 +49,7 @@ const Hero = () => {
               width={320}
               height={180}
               className='h-full w-full object-cover'
+              priority
             />
           </div>
           <div className='h-full w-full '>
@@ -73,6 +75,7 @@ const Hero = () => {
               width={1280}
               height={720}
               className='h-full w-full object-cover'
+              priority
             />
           </div>
         </div>
@@ -86,6 +89,7 @@ const Hero = () => {
               width={1280}
               height={720}
               className='h-full w-full object-cover'
+              priority
             />
           </div>
 

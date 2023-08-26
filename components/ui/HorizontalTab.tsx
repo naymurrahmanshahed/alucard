@@ -1,28 +1,31 @@
 'use client';
-
 import { cn } from '@/lib/utils';
-import React, { useCallback, useState } from 'react';
+import React, { useCallback } from 'react';
 
 interface HorizontalTabProps {
   tabs: string[];
   children: React.ReactNode;
   onClick?: () => void;
+  shouldOpenTab: number;
+  setShouldOpenTab: any;
 }
 
 const HorizontalTab: React.FC<HorizontalTabProps> = ({
   tabs,
   children,
   onClick,
+  shouldOpenTab,
+  setShouldOpenTab,
 }) => {
-  const [shouldOpenTab, setShouldOpenTab] = useState<number>(0);
   const handleClick = useCallback(
     (index: number) => {
       setShouldOpenTab(index);
 
       onClick && onClick;
     },
-    [onClick]
+    [setShouldOpenTab, onClick]
   );
+
   return (
     <div className='flex flex-col gap-10'>
       {/* tabs */}
