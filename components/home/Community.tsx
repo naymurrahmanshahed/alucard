@@ -3,8 +3,8 @@ import Link from 'next/link';
 
 const Community = () => {
   return (
-    <section>
-      <div className=' wrapper section-padding relative flex h-full w-full items-center justify-center '>
+    <section className=' wrapper section-padding h-screen'>
+      <div className=' relative flex h-full w-full items-center justify-center '>
         {/* main box */}
         <div className='relative h-[350px]  w-[350px] bg-gray'>
           {/* left box */}

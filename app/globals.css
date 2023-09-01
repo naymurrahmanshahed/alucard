@@ -22,8 +22,12 @@ html {
 .eoq {
   transition: 500ms cubic-bezier(0.45, 0, 0.55, 1);
 }
+
 .section-padding {
   @apply py-20;
+}
+.section-padding-2 {
+  @apply py-40;
 }
 
 /* LINK STYLES */
