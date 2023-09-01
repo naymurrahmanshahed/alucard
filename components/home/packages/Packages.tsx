@@ -26,7 +26,7 @@ const Packages: React.FC<PackagesProps> = ({ fromPackagePage }) => {
         shouldOpenTab={shouldOpenTab}
         setShouldOpenTab={setShouldOpenTab}
       >
-        <div className='grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
+        <div className='grid grid-cols-1 gap-10 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4'>
           {!fromPackagePage &&
             data
               .filter(
@@ -49,7 +49,7 @@ const Packages: React.FC<PackagesProps> = ({ fromPackagePage }) => {
                 <PackageItem key={item.id} packageItem={item} />
               ))}
         </div>
-        <div className='grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
+        <div className='grid grid-cols-1 gap-10 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4'>
           {!fromPackagePage &&
             data
               .filter(
@@ -72,7 +72,7 @@ const Packages: React.FC<PackagesProps> = ({ fromPackagePage }) => {
                 <PackageItem key={item.id} packageItem={item} />
               ))}
         </div>
-        <div className='grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
+        <div className='grid grid-cols-1 gap-10 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4'>
           {!fromPackagePage &&
             data
               .filter(
