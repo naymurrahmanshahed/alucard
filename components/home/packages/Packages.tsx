@@ -1,12 +1,12 @@
 'use client';
 import { data } from '@/data/packages';
-import HorizontalTab from '../ui/HorizontalTab';
-import SectionTitle from '../shared/SectionTitle';
+import HorizontalTab from '../../ui/HorizontalTab';
+import SectionTitle from '../../shared/SectionTitle';
 import PackageItem from './PackageItem';
 import { useState } from 'react';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
-import { buttonVariants } from '../ui/Button';
+import { buttonVariants } from '../../ui/Button';
 import { packageItem } from '@/types/packageItem';
 
 interface PackagesProps {
