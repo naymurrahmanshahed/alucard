@@ -3,7 +3,7 @@ import { cva, VariantProps } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
 
 export const buttonVariants = cva(
-  'inline-block text-center px-6 py-3 rounded-xl border eoq font-medium active:scale-105 disabled:border-grey disabled:bg-grey disabled:text-dark/50 disabled:cursor-not-allowed',
+  'inline-block text-center px-6 py-3 rounded-xl border eoq font-medium active:scale-105 disabled:border-gray disabled:bg-gray disabled:text-dark/50 disabled:cursor-not-allowed',
   {
     variants: {
       variant: {
@@ -11,7 +11,7 @@ export const buttonVariants = cva(
         outline:
           'border-dark bg-transparent text-dark  hover:bg-dark/90 hover:text-white',
         ghost:
-          'border-transparent bg-transparent text-dark hover:border-grey hover:bg-grey ',
+          'border-transparent bg-transparent text-dark hover:border-gray hover:bg-gray ',
         rose: 'border-red bg-red text-white hover:border-red/90 hover:bg-red/90 ',
         valentine:
           'border-pink bg-pink text-white hover:border-pink/90 hover:bg-pink/90 ',

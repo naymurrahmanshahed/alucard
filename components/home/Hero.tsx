@@ -29,7 +29,7 @@ const Hero = () => {
             </h2>
           </div>
         </div>
-        <hr className='border-grey' />
+        <hr className='border-gray' />
         {/* second row */}
         <div className='grid h-[5rem] w-full grid-cols-[25%_auto_50%] gap-20  '>
           <div className='flex h-full w-full items-center '>
@@ -60,7 +60,7 @@ const Hero = () => {
             </div>
           </div>
         </div>
-        <hr className='border-grey' />
+        <hr className='border-gray' />
         {/* third row */}
         <div className='grid h-[5rem] w-full grid-cols-[40%_auto] gap-20 '>
           <div className='flex h-full w-full items-center  '>
@@ -79,7 +79,7 @@ const Hero = () => {
             />
           </div>
         </div>
-        <hr className='border-grey' />
+        <hr className='border-gray' />
         {/* fourth row */}
         <div className='grid h-[5rem] w-full  grid-cols-[35%_auto] gap-20'>
           <div className='h-full w-full overflow-hidden rounded-[30px_30px_30px_0px]'>
@@ -126,7 +126,7 @@ const Hero = () => {
             </h2>
           </div>
         </div>
-        <hr className='border-grey' />
+        <hr className='border-gray' />
         {/* Packages button */}
         <Link
           href={'/#packages'}
