@@ -2,33 +2,21 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { buttonVariants } from '../ui/Button';
 import { formatCurrency } from '@/utils/formatCurrency';
-
+import { packageItem } from '@/types/packageItem';
 interface PackageItemProps {
-  id: number;
-  title: string;
-  image: string;
-  category: string;
-  price: number;
-  description: string;
+  packageItem: packageItem;
 }
 
-const PackageItem: React.FC<PackageItemProps> = ({
-  id,
-  title,
-  image,
-  category,
-  price,
-  description,
-}) => {
+const PackageItem: React.FC<PackageItemProps> = ({ packageItem }) => {
   return (
     <div className='flex w-full flex-col gap-5'>
       <Link
-        href={`/packages/${id}`}
+        href={`/packages/${packageItem.id}`}
         className='border-gray group h-[15rem] w-full overflow-hidden rounded-xl border'
       >
         <Image
-          src={image}
-          alt={title}
+          src={packageItem.image}
+          alt={packageItem.title}
           height={640}
           width={640}
           className=' eoq
@@ -38,16 +26,18 @@ const PackageItem: React.FC<PackageItemProps> = ({
       </Link>
       <div className='eoq border-gray bg-gray/25 hover:bg-gray/50 flex w-full flex-col gap-2.5 rounded-xl border p-5'>
         <span className='text-xs font-bold uppercase tracking-[0.375em] text-pink'>
-          {category}
+          {packageItem.category}
         </span>
-        <h4 className='text-xl'>{title}</h4>
+        <h4 className='text-xl'>{packageItem.title}</h4>
         <hr />
-        <p className='text-dark/75'>{description.substring(0, 50)}...</p>
+        <p className='text-dark/75'>
+          {packageItem.description.substring(0, 50)}...
+        </p>
         <div className='flex items-center justify-between gap-2.5'>
-          <p>{formatCurrency(price, 'en-GB', 'BDT')}</p>
+          <p>{formatCurrency(packageItem.price, 'en-GB', 'BDT')}</p>
           <Link
             className={buttonVariants({ variant: 'rose' })}
-            href={`/packages/${id}`}
+            href={`/packages/${packageItem.id}`}
           >
             View details
           </Link>
