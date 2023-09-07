@@ -1,4 +1,4 @@
-import Packages from '@/components/home/packages/Packages';
+import Packages from '@/components/packages/Packages';
 import FooterMini from '@/components/shared/footer/FooterMini';
 import Navbar from '@/components/shared/navbar/Navbar';
 import React from 'react';
