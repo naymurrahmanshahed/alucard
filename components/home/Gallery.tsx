@@ -2,7 +2,7 @@ import { cn } from '@/lib/utils';
 import SectionTitle from '../shared/SectionTitle';
 import Image from 'next/image';
 import { data } from '@/data/gallery';
-import { gallery } from '@/types/gallery';
+import { galleryType } from '@/types/gallery';
 
 const Gallery = () => {
   return (
@@ -17,7 +17,7 @@ const Gallery = () => {
         {/* grid parent */}
         <div className='gallery-grid-parent h-screen w-full gap-10 overflow-hidden'>
           {/* grid items */}
-          {data.map((item: gallery) => (
+          {data.map((item: galleryType) => (
             <div
               key={item.id}
               className={cn(

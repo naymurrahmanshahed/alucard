@@ -1,4 +1,4 @@
-export type gallery = {
+export type galleryType = {
   id: number;
   class: string;
   src: string;
