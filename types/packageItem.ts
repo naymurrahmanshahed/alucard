@@ -1,7 +1,7 @@
 import { bookingType } from './booking';
 import { specialistType } from './specialist';
 
-export type packageItemType = {
+export type beautyPackageType = {
   _id: string;
   title: string;
   description: string;

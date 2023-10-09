@@ -7,15 +7,22 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import { buttonVariants } from '../ui/Button';
-import { packageItem } from '@/types/packageItem';
+
+import useFetch from '@/hooks/use-fetch';
+import Loading from '../shared/loading';
+import Error from '../shared/error';
+import { beautyPackageType } from '@/types/packageItem';
 
 interface PackagesProps {
   fromPackagePage?: boolean;
 }
 
 const Packages: React.FC<PackagesProps> = ({ fromPackagePage }) => {
-  const [shouldOpenTab, setShouldOpenTab] = useState<number>(0);
-  const tab = [...new Set(data?.map((masterCat) => masterCat.masterCategory))];
+  const {
+    data: beautyPackages,
+    error,
+    isLoading,
+  } = useFetch('/api/beauty_packages/');
 
   return (
     <section className='wrapper section-padding ' id='packages'>
@@ -25,82 +32,98 @@ const Packages: React.FC<PackagesProps> = ({ fromPackagePage }) => {
         color='bg-red'
       />
 
-      <HorizontalTab
-        tabs={tab}
-        shouldOpenTab={shouldOpenTab}
-        setShouldOpenTab={setShouldOpenTab}
-      >
-        <div className='grid grid-cols-1 gap-10 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4'>
-          {!fromPackagePage &&
-            data
-              .filter(
-                (item: packageItem) =>
-                  item.masterCategory === tab[shouldOpenTab]
-              )
-              .sort((a: packageItem, b: packageItem) => a.price - b.price)
-              .slice(0, 4)
-              .map((item: packageItem) => (
-                <PackageItem key={item.id} packageItem={item} />
-              ))}
-          {fromPackagePage &&
-            data
-              .filter(
-                (item: packageItem) =>
-                  item.masterCategory === tab[shouldOpenTab]
-              )
-              .sort((a: packageItem, b: packageItem) => a.price - b.price)
-              .map((item: packageItem) => (
-                <PackageItem key={item.id} packageItem={item} />
-              ))}
-        </div>
-        <div className='grid grid-cols-1 gap-10 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4'>
-          {!fromPackagePage &&
-            data
-              .filter(
-                (item: packageItem) =>
-                  item.masterCategory === tab[shouldOpenTab]
-              )
-              .sort((a: packageItem, b: packageItem) => a.price - b.price)
-              .slice(0, 4)
-              .map((item: packageItem) => (
-                <PackageItem key={item.id} packageItem={item} />
-              ))}
-          {fromPackagePage &&
-            data
-              .filter(
-                (item: packageItem) =>
-                  item.masterCategory === tab[shouldOpenTab]
-              )
-              .sort((a: packageItem, b: packageItem) => a.price - b.price)
-              .map((item: packageItem) => (
-                <PackageItem key={item.id} packageItem={item} />
-              ))}
-        </div>
-        <div className='grid grid-cols-1 gap-10 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4'>
-          {!fromPackagePage &&
-            data
-              .filter(
-                (item: packageItem) =>
-                  item.masterCategory === tab[shouldOpenTab]
-              )
-              .sort((a: packageItem, b: packageItem) => a.price - b.price)
-              .slice(0, 4)
-              .map((item: packageItem) => (
-                <PackageItem key={item.id} packageItem={item} />
-              ))}
-          {fromPackagePage &&
-            data
-              .filter(
-                (item: packageItem) =>
-                  item.masterCategory === tab[shouldOpenTab]
-              )
-              .sort((a: packageItem, b: packageItem) => a.price - b.price)
-              .map((item: packageItem) => (
-                <PackageItem key={item.id} packageItem={item} />
-              ))}
-        </div>
-      </HorizontalTab>
-      {!fromPackagePage && (
+      {isLoading && <Loading isLoading={isLoading} />}
+
+      {error && <Error error={error.message} />}
+
+      {/* PACKAGES */}
+      {beautyPackages && beautyPackages.length > 0 && (
+        <HorizontalTab tabs={['Wellness', 'Beauty', 'Events']}>
+          {/* Wellness */}
+          <div className='grid grid-cols-1 gap-10 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4'>
+            {!fromPackagePage &&
+              beautyPackages
+                .filter(
+                  (item: beautyPackageType) => item.category === 'Wellness'
+                )
+                .sort(
+                  (a: beautyPackageType, b: beautyPackageType) =>
+                    a.price - b.price
+                )
+                .slice(0, 4)
+                .map((item: beautyPackageType) => (
+                  <PackageItem key={item._id} packageItem={item} />
+                ))}
+
+            {fromPackagePage &&
+              beautyPackages
+                .filter(
+                  (item: beautyPackageType) => item.category === 'Wellness'
+                )
+                .sort(
+                  (a: beautyPackageType, b: beautyPackageType) =>
+                    a.price - b.price
+                )
+                .map((item: beautyPackageType) => (
+                  <PackageItem key={item._id} packageItem={item} />
+                ))}
+          </div>
+
+          {/* Beauty */}
+          <div className='grid grid-cols-1 gap-10 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4'>
+            {!fromPackagePage &&
+              beautyPackages
+                .filter((item: beautyPackageType) => item.category === 'Beauty')
+                .sort(
+                  (a: beautyPackageType, b: beautyPackageType) =>
+                    a.price - b.price
+                )
+                .slice(0, 4)
+                .map((item: beautyPackageType) => (
+                  <PackageItem key={item._id} packageItem={item} />
+                ))}
+
+            {fromPackagePage &&
+              beautyPackages
+                .filter((item: beautyPackageType) => item.category === 'Beauty')
+                .sort(
+                  (a: beautyPackageType, b: beautyPackageType) =>
+                    a.price - b.price
+                )
+                .map((item: beautyPackageType) => (
+                  <PackageItem key={item._id} packageItem={item} />
+                ))}
+          </div>
+
+          {/* Events */}
+          <div className='grid grid-cols-1 gap-10 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4'>
+            {!fromPackagePage &&
+              beautyPackages
+                .filter((item: beautyPackageType) => item.category === 'Events')
+                .sort(
+                  (a: beautyPackageType, b: beautyPackageType) =>
+                    a.price - b.price
+                )
+                .slice(0, 4)
+                .map((item: beautyPackageType) => (
+                  <PackageItem key={item._id} packageItem={item} />
+                ))}
+
+            {fromPackagePage &&
+              beautyPackages
+                .filter((item: beautyPackageType) => item.category === 'Events')
+                .sort(
+                  (a: beautyPackageType, b: beautyPackageType) =>
+                    a.price - b.price
+                )
+                .map((item: beautyPackageType) => (
+                  <PackageItem key={item._id} packageItem={item} />
+                ))}
+          </div>
+        </HorizontalTab>
+      )}
+
+      {!fromPackagePage && beautyPackages && beautyPackages?.length > 0 && (
         <div className='mt-20 flex justify-center'>
           <Link
             href={'/packages'}

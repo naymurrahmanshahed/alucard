@@ -1,30 +1,27 @@
 'use client';
 import { cn } from '@/lib/utils';
-import { packageItem } from '@/types/packageItem';
-import React, { useCallback } from 'react';
+
+import React, { useCallback, useState } from 'react';
 
 interface HorizontalTabProps {
   tabs: string[];
   children: React.ReactNode;
   onClick?: () => void;
-  shouldOpenTab: number;
-  setShouldOpenTab: any;
 }
 
 const HorizontalTab: React.FC<HorizontalTabProps> = ({
   tabs,
   children,
   onClick,
-  shouldOpenTab,
-  setShouldOpenTab,
 }) => {
+  const [shouldOpenTab, setShouldOpenTab] = useState<number>(0);
   const handleClick = useCallback(
     (index: number) => {
       setShouldOpenTab(index);
 
       onClick && onClick;
     },
-    [setShouldOpenTab, onClick]
+    [onClick]
   );
 
   return (
@@ -34,7 +31,7 @@ const HorizontalTab: React.FC<HorizontalTabProps> = ({
         {tabs?.map((tab: string, index: number) => (
           <button
             className={cn(
-              'eoq border-gray flex h-[4rem] w-[15rem] items-center justify-center whitespace-nowrap border px-6 py-3 text-center text-lg font-semibold uppercase tracking-widest',
+              'eoq flex h-[4rem] w-[15rem] items-center justify-center whitespace-nowrap border border-gray px-6 py-3 text-center text-lg font-semibold uppercase tracking-widest',
               index == 0 && 'rounded-bl-2xl',
               index == tabs.length - 1 && 'rounded-tr-2xl',
               shouldOpenTab === index && 'border-dark bg-dark text-light'
