@@ -4,9 +4,9 @@
 
 /* base style */
 
-/* main {
+main {
   @apply mt-20;
-} */
+}
 
 html {
   --scroll-behavior: smooth !important;
