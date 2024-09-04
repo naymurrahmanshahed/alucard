@@ -1,9 +1,9 @@
 'use client';
-import { data } from '@/data/packages';
+
 import HorizontalTab from '../ui/HorizontalTab';
 import SectionTitle from '../shared/SectionTitle';
 import PackageItem from './PackageItem';
-import { useState } from 'react';
+
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import { buttonVariants } from '../ui/Button';
@@ -22,7 +22,7 @@ const Packages: React.FC<PackagesProps> = ({ fromPackagePage }) => {
     data: beautyPackages,
     error,
     isLoading,
-  } = useFetch('/api/beauty_packages/');
+  } = useFetch('/api/beauty_packages');
 
   return (
     <section className='wrapper section-padding ' id='packages'>

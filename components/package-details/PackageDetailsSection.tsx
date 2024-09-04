@@ -1,8 +1,8 @@
-import { packageItem } from '@/types/packageItem';
+import { beautyPackageType } from '@/types/packageItem';
 import React from 'react';
 
 interface PackageDetailsSectionProps {
-  packageItem: packageItem;
+  packageItem: beautyPackageType;
 }
 
 const PackageDetailsSection: React.FC<PackageDetailsSectionProps> = ({
