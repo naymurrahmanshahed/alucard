@@ -60,7 +60,7 @@ const Community = () => {
           Join Now
         </Link> */}
         <Link
-          href={'/#packages'}
+          href={'/sign-in'}
           className='group absolute bottom-10 right-10 z-[1] flex h-32 w-32 -translate-x-1/2 items-center justify-center overflow-hidden rounded-full bg-dark/80 text-lg  uppercase text-light shadow-2xl shadow-dark/50 backdrop-blur-lg hover:shadow-red/50'
         >
           <p className='z-[3]'>Join Now</p>
